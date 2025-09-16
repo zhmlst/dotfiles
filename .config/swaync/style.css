@@ -1,0 +1,13 @@
+.floating-notifications .notification-background {
+  border-radius: 4px;
+  background: #1a1a19;
+  border: 1px solid #333332;
+  opacity: 1;
+}
+
+.control-center .notification-background .notification {
+  border-radius: 4px;
+  background: #1a1a19;
+  border: 1px solid #333332;
+  opacity: 1;
+}

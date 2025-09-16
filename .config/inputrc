@@ -1,0 +1,13 @@
+# ~/.config/inputrc
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+"\t": menu-complete
+"\e[Z": menu-complete-backward
+
+set show-all-if-ambiguous on
+set completion-ignore-case on
+set menu-complete-display-prefix on
+set bell-style none
+set completion-map-case on

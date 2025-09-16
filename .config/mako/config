@@ -1,0 +1,10 @@
+max-history=10
+sort=-priority
+background-color=#1a1a19
+text-color=#d1d1d1
+width=300
+height=100
+border-size=2
+border-color=#333332
+border-radius=4
+max-icon-size=64

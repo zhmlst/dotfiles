@@ -1,0 +1,9 @@
+[user]
+	name = zhmlst
+	email = zhmlst.btw@gmail.com
+[color]
+	ui = auto
+[core]
+	editor = nvim
+[pull]
+	rebase = false
