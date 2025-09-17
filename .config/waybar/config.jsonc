@@ -3,7 +3,17 @@
 
     "layer": "top",
     "modules-left": ["niri/workspaces", "custom/separator", "niri/window"],
-    "modules-right": ["tray", "custom/separator", "custom/notification", "custom/separator",  "niri/language", "custom/separator", "bluetooth", "custom/separator", "network", "custom/separator", "custom/battery", "custom/separator", "clock", "privacy"],
+    "modules-right": [
+        "tray", "custom/separator",
+        "custom/notification", "custom/separator",
+        "niri/language", "custom/separator",
+        "wireplumber", "custom/separator",
+        "bluetooth", "custom/separator",
+        "network", "custom/separator",
+        "custom/battery", "custom/separator",
+        "clock",
+        "privacy"
+    ],
 
     "custom/separator": { "format": "|", "tooltip": false },
     "niri/workspaces": { "format": " {index} " },
@@ -14,6 +24,7 @@
         "on-click": "niri msg action screenshot-window --id $(niri msg focused-window | grep -m 1 ID | grep -oP '\\d+')",
         "on-click-right": "niri msg action close-window --id $(niri msg focused-window | grep -m 1 ID | grep -oP '\\d+')"
     },
+    "tray": { "spacing": 10 },
     "custom/notification": {
          "tooltip": false,
          "format": " {icon} {text} ",
@@ -39,9 +50,16 @@
         "format-en": "US",
         "format-ru": "RU"
     },
+    "wireplumber": {
+        "format": " {icon} {volume}% ",
+        "on-click": "helvum",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "format-icons":  ["󰕿", "󰖀", "󰕾"],
+        "format-muted": " 󰝟 {volume} "
+    },
     "bluetooth": {
         "format": "  {status} ",
-        "format-connected": " {num_connections} connected",
+        "format-connected": "  {num_connections} connected ",
         "format-disabled": " 󰂲 {status} ",
         "on-click": "blueman-manager",
         "on-click-right": "rfkill toggle bluetooth",

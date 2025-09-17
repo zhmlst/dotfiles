@@ -47,6 +47,7 @@ window#waybar {
 #custom-battery.low { border-bottom: 1px solid #ff968c; }
 
 #window:hover,
+#wireplumber:hover,
 #language:hover,
 #bluetooth:hover,
 #network:hover,
