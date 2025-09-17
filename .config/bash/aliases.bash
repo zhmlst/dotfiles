@@ -42,7 +42,6 @@ dots-backup() {
 
 	dots push origin master -f
 }
-
 dots-reset-history() {
 	read -p "Reset dotfiles history? (y/n): " confirm
 	if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
