@@ -25,21 +25,17 @@ dots-backup() {
 			;;
 		esac
 	done
-
 	dots add .
 	dots status -s
-
 	read -p "Commit and push these changes? (y/n): " confirm
 	if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
 		return 1
 	fi
-
 	if [[ $amend -eq 1 ]]; then
 		dots commit --amend --no-edit
 	else
 		dots commit -m "backup"
 	fi
-
 	dots push origin master -f
 }
 dots-reset-history() {
@@ -47,7 +43,6 @@ dots-reset-history() {
 	if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
 		return 1
 	fi
-
 	dots add .
 	dots checkout --orphan tmp
 	dots add .
