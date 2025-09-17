@@ -13,23 +13,42 @@ alias gs='git status --short'
 alias gc='git add . && git commit -m'
 
 #dotfiles
-alias dots='git --git-dir=.dotfiles.git --work-tree=$HOME'
+alias dots='git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
 dots-backup() {
+	local amend=0
+	while getopts "a" opt; do
+		case $opt in
+		a) amend=1 ;;
+		*)
+			echo "Usage: dots-backup [-a]"
+			return 1
+			;;
+		esac
+	done
+
 	dots add .
 	dots status -s
+
 	read -p "Commit and push these changes? (y/n): " confirm
-	if [[ "$confirm" == "y" || "$confirm" == "Y" ]]; then
-		dots commit -m "backup"
-		dots push origin master
-	else
+	if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
 		return 1
 	fi
+
+	if [[ $amend -eq 1 ]]; then
+		dots commit --amend --no-edit
+	else
+		dots commit -m "backup"
+	fi
+
+	dots push origin master
 }
+
 dots-reset-history() {
 	read -p "Reset dotfiles history? (y/n): " confirm
 	if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
 		return 1
 	fi
+
 	dots add .
 	dots checkout --orphan tmp
 	dots add .

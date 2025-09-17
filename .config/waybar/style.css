@@ -44,10 +44,12 @@ window#waybar {
     background-color: #ffafa5;
 }
 
-#custom-battery.full { border-bottom: 1px solid #d1d1d1; }
 #custom-battery.low { border-bottom: 1px solid #ff968c; }
 
 #window:hover,
+#language:hover,
+#bluetooth:hover,
+#network:hover,
 #custom-battery:hover,
 #clock:hover,
 #custom-notification:hover {

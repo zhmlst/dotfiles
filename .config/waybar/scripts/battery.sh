@@ -18,9 +18,11 @@ while [ $# -gt 0 ]; do
 	esac
 done
 
-state=$(upower -i $(upower -e | grep battery) | awk '/state/ {gsub(/^ +| +$/,"",$2); print $2}')
-perc=$(upower -i $(upower -e | grep battery) | awk '/percentage/ {gsub(/^ +| +$/,"",$2); print int($2)}')
+battery=$(upower -e | grep battery)
+state=$(upower -i "$battery" | awk '/state/ {gsub(/^ +| +$/,"",$2); print $2}')
+perc=$(upower -i "$battery" | awk '/percentage/ {gsub(/^ +| +$/,"",$2); print int($2)}')
 
+# Класс для Waybar
 class=""
 if [ "$state" = "fully-charged" ] || [ "$perc" -ge "$FULL" ]; then
 	class="full"
@@ -28,7 +30,11 @@ elif [ "$perc" -le "$LOW" ]; then
 	class="low"
 fi
 
-prev="{\"alt\": \"$state\", \"percentage\": $perc, \"class\": \"$class\"}"
+# Альтернативный текст (alt) для Waybar
+alt_state="$state"
+[ "$state" = "fully-charged" ] && alt_state="charging"
+
+prev="{\"alt\": \"$alt_state\", \"percentage\": $perc, \"class\": \"$class\"}"
 echo "$prev"
 
 upower --monitor-detail | awk -F: -v prev="$prev" -v LOW="$LOW" -v FULL="$FULL" '
@@ -36,10 +42,14 @@ upower --monitor-detail | awk -F: -v prev="$prev" -v LOW="$LOW" -v FULL="$FULL" 
 /percentage/ {gsub(/^ +| +$/,"",$2); perc=int($2)}
 state && perc {
     class=""
-    if(state=="fully-charged" || perc>=FULL) class="full"
+    alt=state
+    if(state=="fully-charged" || perc>=FULL) {
+        class="full"
+        alt="charging"
+    }
     else if(perc<=LOW) class="low"
 
-    json="{\"alt\": \"" state "\", \"percentage\": " perc ", \"class\": \"" class "\"}"
+    json="{\"alt\": \"" alt "\", \"percentage\": " perc ", \"class\": \"" class "\"}"
     if(json != prev){
         print json
         fflush()

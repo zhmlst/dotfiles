@@ -95,15 +95,11 @@ layout {
     }
 }
 
-
-spawn-at-startup "unset NIRI_SOCKET"
-spawn-at-startup "export NIRI_SOCKET=$(ls -t /run/user/$(id -u)/niri.wayland-*.sock | head -n 1)"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 
 hotkey-overlay { skip-at-startup; }
-
 
 gestures {
   hot-corners {
@@ -124,8 +120,8 @@ screenshot-path "~/pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 }
 
 binds {
-    Mod+A hotkey-overlay-title="terminal" { spawn "alacritty"; }
-    Mod+B hotkey-overlay-title="browser" { spawn "firefox"; }
+    Mod+A hotkey-overlay-title="alacritty" { spawn "alacritty"; }
+    Mod+W hotkey-overlay-title="web" { spawn "firefox"; }
     Mod+E hotkey-overlay-title="file explorer" { spawn "nemo"; }
     Mod+R hotkey-overlay-title="run app" { spawn "fuzzel"; }
 
@@ -136,17 +132,14 @@ binds {
     Mod+Period { expel-window-from-column; }
     Mod+Shift+Comma  { consume-or-expel-window-left; }
     Mod+Shift+Period { consume-or-expel-window-right; }
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+T { toggle-column-tabbed-display; }
 
-    Mod+Shift+Slash { show-hotkey-overlay; }
-
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+M { maximize-column; }
+    Mod+S { maximize-column; }
+    Mod+F { toggle-window-floating; }
+    Mod+Space { fullscreen-window; }
 
     Mod+Escape { quit; }
 
-    Mod+Space   { toggle-window-floating; }
     Mod+H       { focus-column-left; }
     Mod+J       { focus-window-down; }
     Mod+K       { focus-window-up; }
