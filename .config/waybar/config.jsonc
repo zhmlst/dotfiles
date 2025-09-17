@@ -8,7 +8,7 @@
     "niri/workspaces": { "format": " {index} " },
     "niri/window": { "format": " {title}" },
     "custom/battery": {
-      "exec": "$XDG_CONFIG_HOME/waybar/scripts/battery.sh",
+      "exec": "$XDG_CONFIG_HOME/waybar/scripts/battery.sh --low 10 --full 95",
       "restart-interval": "60",
       "return-type": "json",
       "format": " {icon} {percentage}% ",
