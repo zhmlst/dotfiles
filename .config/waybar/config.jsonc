@@ -3,10 +3,10 @@
 
     "layer": "top",
     "modules-left": ["niri/workspaces", "custom/separator", "niri/window"],
-    "modules-right": ["custom/separator", "custom/battery", "custom/separator", "clock"],
+    "modules-right": ["custom/separator", "custom/battery", "custom/separator", "clock", "custom/separator", "custom/notification"],
 
     "niri/workspaces": { "format": " {index} " },
-    "niri/window": { "format": " {title}" },
+    "niri/window": { "format": " {title} " },
     "custom/battery": {
       "exec": "$XDG_CONFIG_HOME/waybar/scripts/battery.sh --low 10 --full 95",
       "restart-interval": "60",
@@ -18,8 +18,28 @@
       }
     },
     "clock": {
-        "format": " {:%Y-%m-%d %H:%M}",
+        "format": " {:%Y-%m-%d %H:%M} ",
         "timezone": "Europe/Moscow",
+    },
+    "custom/notification": {
+         "tooltip": false,
+         "format": " {icon} {text} ",
+         "format-icons": {
+              "notification": "<span foreground='red'><sup></sup></span>",
+              "none": "",
+              "dnd-notification": "<span foreground='red'><sup></sup></span>",
+              "dnd-none": "",
+              "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+              "inhibited-none": "",
+              "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+              "dnd-inhibited-none": ""
+         },
+         "return-type": "json",
+         "exec-if": "which swaync-client",
+         "exec": "swaync-client -swb",
+         "on-click": "swaync-client -t -sw",
+         "on-click-right": "swaync-client -d -sw",
+         "escape": true
     },
     "custom/separator": { "format": "|" }
 }
