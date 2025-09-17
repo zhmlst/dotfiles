@@ -35,12 +35,12 @@ dots-backup() {
 	fi
 
 	if [[ $amend -eq 1 ]]; then
-		dots commit --amend -f
+		dots commit --amend
 	else
 		dots commit -m "backup"
 	fi
 
-	dots push origin master
+	dots push origin master -f
 }
 
 dots-reset-history() {
