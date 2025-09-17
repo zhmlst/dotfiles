@@ -35,8 +35,8 @@ input {
 output "eDP-1" {
     mode "3200x2000@60"
     scale 2
-    background-color "#003300"
-    backdrop-color "#001100"
+    background-color "#333332"
+    backdrop-color "#1a1a19"
 }
 
 window-rule {
@@ -95,11 +95,21 @@ layout {
     }
 }
 
+
+spawn-at-startup "unset NIRI_SOCKET"
+spawn-at-startup "export NIRI_SOCKET=$(ls -t /run/user/$(id -u)/niri.wayland-*.sock | head -n 1)"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 
 hotkey-overlay { skip-at-startup; }
+
+
+gestures {
+  hot-corners {
+    off
+  }
+}
 
 screenshot-path "~/pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
@@ -146,8 +156,8 @@ binds {
     Mod+Ctrl+K  { move-window-up; }
     Mod+Ctrl+L  { move-column-right; }
     Mod+Shift+H { set-column-width "-10%"; }
-    Mod+Shift+J { set-window-height "+10%"; }
-    Mod+Shift+K { set-window-height "-10%"; }
+    Mod+Shift+J { set-window-height "-10%"; }
+    Mod+Shift+K { set-window-height "+10%"; }
     Mod+Shift+L { set-column-width "+10%"; }
 
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }

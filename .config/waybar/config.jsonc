@@ -1,108 +1,25 @@
 {
+    "reload_style_on_change": true,
+
     "layer": "top",
-    "height": 20,
-    "spacing": 4,
-    "modules-left": [
-        "niri/workspaces",
-        "tray",
-        "niri/window"
-    ],
-    "modules-right": [
-        "niri/language",
-        "wireplumber",
-        "network",
-        "upower",
-        "clock",
-        "custom/power"
-    ],
-    "privacy": {
-    	"icon-spacing": 4,
-    	"icon-size": 18,
-  "transition-duration": 250,
-    	"modules": [
-    		{
-   "type":   "screenshare",
-    			"tooltip": true,
-    			"tooltip-icon-size": 24
-    		},
-    		{
-    			"type": "audio-out",
-    		"tooltip": true,
-    			"tooltip-icon-size": 24
-    		},
-    		{
-    			"type": "audio-in",
-    			"tooltip": true,
-    			"tooltip-icon-size": 24
-    		}
-    	],
-    	"ignore-monitor": true,
-    	"ignore": [
-    		{
-    			"type": "audio-in",
-    			"name": "cava"
-    		},
-    		{
-    			"type": "screenshare",
-    			"name": "obs"
-    		}
-    	]
-    },
-    "wireplumber": {
-        "format": "{volume}%",
-        "format-muted": "",
-        "on-click": "helvum",
-        "max-volume": 150,
-        "scroll-step": 0.2
-    },
-    "niri/workspaces": {
-    },
-    "niri/window": {
-        "format": "{}",
-        "rewrite": {
-            "(.*) - Mozilla Firefox": "🌎 $1",
-            "(.*) - zsh": "> [$1]"
-        }
-    },
-    "niri/language": {
-        "format-en": "US",
-        "format-ru": "RU"
-    },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10,
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
+    "modules-left": ["niri/workspaces", "custom/separator", "niri/window"],
+    "modules-right": ["custom/separator", "custom/battery", "custom/separator", "clock"],
+
+    "niri/workspaces": { "format": " {index} " },
+    "niri/window": { "format": " {title}" },
+    "custom/battery": {
+      "exec": "$XDG_CONFIG_HOME/waybar/scripts/battery.sh",
+      "restart-interval": "60",
+      "return-type": "json",
+      "format": " {icon} {percentage}% ",
+      "format-icons": {
+          "charging": ["󰢟","󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"],
+          "discharging": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
+      }
     },
     "clock": {
+        "format": " {:%Y-%m-%d %H:%M}",
         "timezone": "Europe/Moscow",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
     },
-    "upower": {
-         "icon-size": 20,
-         "hide-if-empty": true,
-         "tooltip": true,
-         "tooltip-spacing": 20
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    }
+    "custom/separator": { "format": "|" }
 }

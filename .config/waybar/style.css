@@ -1,9 +1,54 @@
 * {
-    font-size: 14px;
+    font-family: monospace;
+    font-size: 15px;
+    color: #d1d1d1;
+    min-height: 0;
+    text-shadow: none;
 }
+
 
 window#waybar {
     background-color: #1a1a19;
-    border-bottom: 1px solid #333332;
-    color: #ffffff;
+    border-bottom: 1 solid #333332;
+}
+
+/* workspaces */
+#workspaces button {
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+#workspaces button:hover label {
+    color: #eaeaea;
+    background: #333332;
+}
+
+#workspaces button.focused label {
+    color: #1a1a19;
+    background-color: #d1d1d1;
+}
+
+#workspaces button.focused:hover label {
+    color: #333332;
+    background-color: #eaeaea;
+}
+
+#workspaces button.urgent label {
+    background-color: #ff968c;
+}
+
+#workspaces button.urgent:hover label {
+    color: #333332;
+    background-color: #ffafa5;
+}
+
+/* battery */
+#custom-battery.charged {
+    border-bottom: 1 solid #d1d1d1;
+}
+
+#custom-battery.discharged {
+    border-bottom: 1 solid #ffafa5;
 }

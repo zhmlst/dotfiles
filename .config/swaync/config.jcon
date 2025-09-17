@@ -7,5 +7,5 @@
   "widgets": ["inhibitors", "notifications", "mpris"],
   "notification-edges": true,
   "control-center": true,
-  "notifications": true
+  "notifications": true,
 }
