@@ -35,7 +35,7 @@ dots-backup() {
 	fi
 
 	if [[ $amend -eq 1 ]]; then
-		dots commit --amend
+		dots commit --amend --no-edit
 	else
 		dots commit -m "backup"
 	fi
