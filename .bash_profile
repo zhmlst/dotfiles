@@ -15,7 +15,7 @@ export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-export PATH="$XDG_CONFIG_HOME/bash/scripts:$HOME/.local/bin:$GOPATH/bin:$PATH"
+export PATH="$XDG_CONFIG_HOME/bash/scripts:$HOME/.local/bin:$GOPATH/bin:$PATH":$HOME/.local/src/v
 
 mkdir -p $XDG_STATE_HOME
 tabs 4

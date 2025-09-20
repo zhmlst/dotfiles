@@ -12,15 +12,11 @@ return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
     config = function()
-      local ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-      if not ok then
-        vim.notify("mason-lspconfig not found", vim.log.levels.ERROR)
-        return
-      end
+      local mason_lspconfig = require("mason-lspconfig")
 
       mason_lspconfig.setup({
         ensure_installed = { "lua_ls", "gopls" },
-        automatic_installation = true,
+        automatic_enable = false,
       })
     end,
   },
