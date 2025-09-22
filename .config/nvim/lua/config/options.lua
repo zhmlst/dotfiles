@@ -1,6 +1,6 @@
 local options = {
   --fmt
-  autoindent = true, --smartindent = true
+  --autoindent = true, smartindent = true
   tabstop = 4,
   shiftwidth = 4,
   expandtab = true,
