@@ -14,6 +14,9 @@ return {
         mappings.map("n", "<leader>e", ":Neotree toggle<cr>"),
         filesystem = {
           window = {
+            popup = {
+              border = "double",
+            },
             mappings = {
               ["l"] = "open",
               ["h"] = "close_node",
