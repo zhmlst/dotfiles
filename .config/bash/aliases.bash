@@ -13,7 +13,7 @@ alias gs='git status --short'
 alias gc='git add . && git commit -m'
 
 #dotfiles
-alias dots='git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
+alias dots='git --git-dir=$HOME/.dots.git --work-tree=$HOME'
 dots-backup() {
 	local amend=0
 	while getopts "a" opt; do

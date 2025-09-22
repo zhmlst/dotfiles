@@ -1,0 +1,9 @@
+[[ $- != *i* ]] && return
+for file in $XDG_CONFIG_HOME/bash/*; do
+    [ -f "$file" ] || continue
+    case "$(basename "$file")" in
+        bashrc|bash_profile) continue ;;
+    esac
+    . "$file"
+done
+
