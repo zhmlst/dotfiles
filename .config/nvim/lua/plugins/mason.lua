@@ -11,7 +11,18 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-tool-installer").setup {
-        ensure_installed = { "stylua", "goimports" },
+        ensure_installed = {
+          --lua
+          "lua-language-server",
+          "stylua",
+          --golang
+          "goimports",
+          "gopls",
+          "golangci-lint",
+          --sh
+          "shfmt",
+          "shellcheck",
+        },
         auto_update = false,
         run_on_start = true,
       }

@@ -1,6 +1,5 @@
 local options = {
   --fmt
-  --autoindent = true, smartindent = true
   tabstop = 4,
   shiftwidth = 4,
   expandtab = true,
@@ -11,10 +10,6 @@ local options = {
   backup = false,
   writebackup = false,
   --ui
-  cursorlineopt = "number",
-  number = true,
-  numberwidth = 2,
-  ruler = false,
   cursorline = true,
   laststatus = 3,
   splitkeep = "screen",
