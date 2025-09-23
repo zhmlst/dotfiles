@@ -28,14 +28,6 @@ return {
           },
         },
       },
-      git_status = {
-        window = {
-          mappings = {
-            ["l"] = "open",
-            ["h"] = "close_node",
-          },
-        },
-      },
     }
   end,
 }

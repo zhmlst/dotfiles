@@ -7,7 +7,6 @@ return {
     keys.map("n", "gd", vim.lsp.buf.definition)
     keys.map("n", "gr", vim.lsp.buf.references)
     keys.map("n", "gi", vim.lsp.buf.implementation)
-
     vim.diagnostic.config {
       virtual_text = {
         prefix = "//",
@@ -18,7 +17,7 @@ return {
       update_in_insert = false,
     }
 
-    -- современный способ для lua_ls
+    -- lua
     vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
@@ -47,5 +46,8 @@ return {
       },
     })
     vim.lsp.enable { "gopls" }
+
+    vim.lsp.config("buf_ls", {})
+    vim.lsp.enable { "buf_ls" }
   end,
 }

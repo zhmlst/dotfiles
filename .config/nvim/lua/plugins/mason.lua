@@ -19,6 +19,8 @@ return {
           "goimports",
           "gopls",
           "golangci-lint",
+          --buf
+          "buf",
           --sh
           "shfmt",
           "shellcheck",
