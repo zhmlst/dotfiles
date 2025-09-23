@@ -33,7 +33,16 @@ M.map("v", "K", ":m '<-2<CR>gv=gv")
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "go",
   callback = function()
-    vim.fn.setreg("e", "oif err != nil { return err }" .. string.char(27) .. "^", "c")
+    vim.fn.setreg(
+      "e",
+      'oif err != nil { return fmt.Errorf(": %w", err) }'
+        .. string.char(27)
+        .. "F:"
+        .. string.char(128)
+        .. string.char(253)
+        .. "5i",
+      "c"
+    )
     vim.fn.setreg(
       "m",
       '"tyiw"nyl}ifunc ('
