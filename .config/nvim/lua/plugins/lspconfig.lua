@@ -18,9 +18,19 @@ return {
       update_in_insert = false,
     }
 
-    vim.lsp.config("lua_ls", {})
+    -- современный способ для lua_ls
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+        },
+      },
+    })
     vim.lsp.enable { "lua_ls" }
 
+    -- gopls
     vim.lsp.config("gopls", {
       settings = {
         gopls = {

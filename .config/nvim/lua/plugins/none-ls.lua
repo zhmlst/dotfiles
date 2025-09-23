@@ -16,7 +16,6 @@ return {
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = vim.api.nvim_create_augroup("NullLsFormat", { clear = true }),
-      buffer = bufnr,
       pattern = { "*.lua", "*.go", "*.sh" },
       callback = function()
         vim.lsp.buf.format {
