@@ -19,8 +19,8 @@ return {
             ["if"] = "@function.inner",
             ["ac"] = "@class.outer",
             ["ic"] = "@class.inner",
-            ["pa"] = "@parameter.inner",
-            ["pi"] = "@parameter.outer",
+            ["ip"] = "@parameter.inner",
+            ["ap"] = "@parameter.outer",
           },
         },
         move = {

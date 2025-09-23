@@ -1,8 +1,10 @@
 local options = {
   --fmt
   tabstop = 4,
+  softtabstop = 4,
   shiftwidth = 4,
   expandtab = true,
+  smartindent = true,
   --file
   confirm = true,
   undofile = true,
@@ -10,14 +12,14 @@ local options = {
   backup = false,
   writebackup = false,
   --ui
+  wrap = false,
+  inccommand = "split",
   cursorline = true,
   laststatus = 3,
   splitkeep = "screen",
   signcolumn = "yes",
   showmode = false,
   termguicolors = true,
-  breakindent = false,
-  showbreak = "↪ ",
   list = true,
   listchars = {
     tab = "» ",
@@ -27,6 +29,7 @@ local options = {
   },
   --behavior
   mouse = "",
+  scrolloff = 10,
   updatetime = 250,
   smartcase = true,
   ignorecase = true,
