@@ -10,7 +10,7 @@ return {
   config = function()
     require("neo-tree").setup {
       popup_border_style = "",
-      keys.map("n", "<leader>f", ":Neotree toggle<cr>"),
+      keys.map("n", "<leader>e", ":Neotree toggle<cr>"),
       keys.map("n", "<leader>b", ":Neotree buffers toggle<cr>"),
       filesystem = {
         window = {
