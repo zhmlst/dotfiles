@@ -12,6 +12,7 @@ M.map("n", "<Tab>", ":bn<cr>")
 M.map("n", "<S-Tab>", ":bp<cr>")
 M.map("n", "<leader>w", ":w<cr>")
 M.map("n", "<leader>u", ":e<cr>")
+M.map("n", "<leader>R", ":LspRestart<cr>")
 M.map("n", "<C-q>", ":q<cr>")
 --navigation
 M.map("n", "<C-h>", "<c-w>h")
@@ -28,33 +29,5 @@ M.map("n", "<C-d>", "<C-d>zz")
 M.map("n", "<C-u>", "<C-u>zz")
 M.map("v", "J", ":m '>+1<CR>gv=gv")
 M.map("v", "K", ":m '<-2<CR>gv=gv")
-
---golang macro
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "go",
-  callback = function()
-    vim.fn.setreg(
-      "e",
-      'oif err != nil { return fmt.Errorf(": %w", err) }'
-        .. string.char(27)
-        .. "F:"
-        .. string.char(128)
-        .. string.char(253)
-        .. "5i",
-      "c"
-    )
-    vim.fn.setreg(
-      "m",
-      '"tyiw"nyl}ifunc ('
-        .. string.char(27)
-        .. '"npvua '
-        .. string.char(27)
-        .. '"tpa) () {}'
-        .. string.char(27)
-        .. "BBi",
-      "c"
-    )
-  end,
-})
 
 return M

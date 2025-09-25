@@ -25,7 +25,7 @@ dots-backup() {
 			;;
 		esac
 	done
-	dots add .
+	dots add $HOME
 	dots status -s
 	read -p "Commit and push these changes? (y/n): " confirm
 	if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
@@ -43,7 +43,7 @@ dots-reset-history() {
 	if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
 		return 1
 	fi
-	dots add .
+	dots add $HOME
 	dots checkout --orphan tmp
 	dots add .
 	dots commit -m "init"

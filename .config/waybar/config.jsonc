@@ -1,111 +1,156 @@
 {
-    "reload_style_on_change": true,
-
-    "layer": "top",
-    "modules-left": ["niri/workspaces", "custom/separator", "niri/window"],
-    "modules-right": [
-        "tray", "custom/separator",
-        "custom/notification", "custom/separator",
-        "niri/language", "custom/separator",
-        "wireplumber", "custom/separator",
-        "bluetooth", "custom/separator",
-        "network", "custom/separator",
-        "custom/battery", "custom/separator",
-        "clock",
-        "privacy"
+  "reload_style_on_change": true,
+  "layer": "top",
+  "modules-left": [
+    "niri/workspaces",
+    "custom/separator",
+    "niri/window"
+  ],
+  "modules-right": [
+    "tray",
+    "custom/separator",
+    "custom/notification",
+    "custom/separator",
+    "niri/language",
+    "custom/separator",
+    "wireplumber",
+    "custom/separator",
+    "bluetooth",
+    "custom/separator",
+    "network",
+    "custom/separator",
+    "custom/battery",
+    "custom/separator",
+    "clock",
+    "privacy"
+  ],
+  "custom/separator": {
+    "format": "|",
+    "tooltip": false
+  },
+  "niri/workspaces": {
+    "format": " {index} "
+  },
+  "niri/window": {
+    "format": " {title} ",
+    "tooltip": false,
+    "on-click": "niri msg action screenshot-window --id $(niri msg focused-window | grep -m 1 ID | grep -oP '\\d+')",
+    "on-click-right": "niri msg action close-window --id $(niri msg focused-window | grep -m 1 ID | grep -oP '\\d+')"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": " {icon} {text} ",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "niri/language": {
+    "format": " {} ",
+    "format-en": "US",
+    "format-ru": "RU"
+  },
+  "wireplumber": {
+    "format": " {icon} {volume}% ",
+    "on-click": "helvum",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-icons": [
+      "󰕿",
+      "󰖀",
+      "󰕾"
     ],
-
-    "custom/separator": { "format": "|", "tooltip": false },
-    "niri/workspaces": { "format": " {index} " },
-    "niri/window": {
-        "format": " {title} ",
-        "tooltip": false,
-        "on-click": "niri msg action toggle-window-floating",
-        "on-click": "niri msg action screenshot-window --id $(niri msg focused-window | grep -m 1 ID | grep -oP '\\d+')",
-        "on-click-right": "niri msg action close-window --id $(niri msg focused-window | grep -m 1 ID | grep -oP '\\d+')"
+    "format-muted": " 󰝟 {volume} "
+  },
+  "bluetooth": {
+    "format": "  {status} ",
+    "format-connected": "  {num_connections} connected ",
+    "format-disabled": " 󰂲 {status} ",
+    "on-click": "blueman-manager",
+    "on-click-right": "rfkill toggle bluetooth"
+  },
+  "network": {
+    "interface": "wlp1s0",
+    "format": " 󰖩 {essid} ",
+    "format-disconnected": " 󱛅 disconnected ",
+    "format-disabled": " 󰖪 disabled ",
+    "max-length": 50,
+    "tooltip": false,
+    "on-click": "nm-connection-editor",
+    "on-click-right": "rfkill toggle wlan"
+  },
+  "custom/battery": {
+    "exec": "$XDG_CONFIG_HOME/waybar/scripts/battery.sh --low 10 --full 95",
+    "restart-interval": "60",
+    "return-type": "json",
+    "format": " {icon} {percentage}% ",
+    "format-icons": {
+      "charging": [
+        "󰢟",
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "discharging": [
+        "󰂎",
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "full": [
+        "󰁹"
+      ]
     },
-    "tray": { "spacing": 10 },
-    "custom/notification": {
-         "tooltip": false,
-         "format": " {icon} {text} ",
-         "format-icons": {
-              "notification": "<span foreground='red'><sup></sup></span>",
-              "none": "",
-              "dnd-notification": "<span foreground='red'><sup></sup></span>",
-              "dnd-none": "",
-              "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-              "inhibited-none": "",
-              "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-              "dnd-inhibited-none": ""
-         },
-         "return-type": "json",
-         "exec-if": "which swaync-client",
-         "exec": "swaync-client -swb",
-         "on-click": "swaync-client -t -sw",
-         "on-click-right": "swaync-client -d -sw",
-         "escape": true
-    },
-    "niri/language": {
-        "format": " {} ",
-        "format-en": "US",
-        "format-ru": "RU"
-    },
-    "wireplumber": {
-        "format": " {icon} {volume}% ",
-        "on-click": "helvum",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "format-icons":  ["󰕿", "󰖀", "󰕾"],
-        "format-muted": " 󰝟 {volume} "
-    },
-    "bluetooth": {
-        "format": "  {status} ",
-        "format-connected": "  {num_connections} connected ",
-        "format-disabled": " 󰂲 {status} ",
-        "on-click": "blueman-manager",
-        "on-click-right": "rfkill toggle bluetooth",
-    },
-    "network": {
-        "interface": "wlp1s0",
-        "format": " 󰖩 {essid} ",
-        "format-disconnected": " 󱛅 disconnected ",
-        "format-disabled": " 󰖪 disabled ",
-        "max-length": 50,
-        "tooltip": false,
-        "on-click": "nm-connection-editor",
-        "on-click-right": "rfkill toggle wlan"
-    },
-    "custom/battery": {
-      "exec": "$XDG_CONFIG_HOME/waybar/scripts/battery.sh --low 10 --full 95",
-      "restart-interval": "60",
-      "return-type": "json",
-      "format": " {icon} {percentage}% ",
-      "format-icons": {
-          "charging": ["󰢟","󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"],
-          "discharging": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
-          "full": ["󰁹"]
+    "tooltip": false
+  },
+  "clock": {
+    "format": " {:%Y-%m-%d %H:%M} ",
+    "timezone": "Europe/Moscow",
+    "tooltip": false
+  },
+  "privacy": {
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true
       },
-      "tooltip": false
-    },
-    "clock": {
-        "format": " {:%Y-%m-%d %H:%M} ",
-        "timezone": "Europe/Moscow",
-        "tooltip": false
-    },
-    "privacy": {
-        "transition-duration": 250,
-        "modules": [
-            {
-                "type": "screenshare",
-                "tooltip": true,
-            },
-            {
-                "type": "audio-out",
-                "tooltip": true,
-            },
-            {
-                "type": "audio-in",
-                "tooltip": true,
-            }
-        ],
-    },
+      {
+        "type": "audio-out",
+        "tooltip": true
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true
+      }
+    ]
+  }
 }

@@ -12,11 +12,18 @@ return {
       popup_border_style = "",
       keys.map("n", "<leader>e", ":Neotree toggle<cr>"),
       keys.map("n", "<leader>b", ":Neotree buffers toggle<cr>"),
+      keys.map("n", "<leader>gs", ":Neotree git_status toggle<cr>"),
       filesystem = {
         window = {
           mappings = {
             ["l"] = "open",
             ["h"] = "close_node",
+            ["P"] = {
+              "toggle_preview",
+              config = {
+                use_float = false,
+              },
+            },
           },
         },
       },
@@ -25,6 +32,26 @@ return {
           mappings = {
             ["l"] = "open",
             ["h"] = "close_node",
+            ["P"] = {
+              "toggle_preview",
+              config = {
+                use_float = false,
+              },
+            },
+          },
+        },
+      },
+      git_status = {
+        window = {
+          mappings = {
+            ["l"] = "open",
+            ["h"] = "close_node",
+            ["P"] = {
+              "toggle_preview",
+              config = {
+                use_float = false,
+              },
+            },
           },
         },
       },
