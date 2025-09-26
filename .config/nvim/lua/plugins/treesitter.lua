@@ -30,12 +30,10 @@ return {
           goto_next_start = {
             ["]f"] = "@function.outer",
             ["]t"] = "@class.outer",
-            ["]]"] = "@block.outer",
           },
           goto_previous_start = {
             ["[f"] = "@function.outer",
             ["[t"] = "@class.outer",
-            ["[["] = "@block.outer",
           },
         },
       },

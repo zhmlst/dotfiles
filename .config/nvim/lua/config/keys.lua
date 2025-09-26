@@ -10,17 +10,17 @@ vim.g.mapleader = " "
 --buffers
 M.map("n", "<Tab>", ":bn<cr>")
 M.map("n", "<S-Tab>", ":bp<cr>")
-M.map("n", "<leader>w", ":w<cr>")
-M.map("n", "<leader>u", ":e<cr>")
-M.map("n", "<leader>R", ":LspRestart<cr>")
-M.map("n", "<C-q>", ":q<cr>")
 --navigation
 M.map("n", "<C-h>", "<c-w>h")
 M.map("n", "<C-j>", "<c-w>j")
 M.map("n", "<C-k>", "<c-w>k")
 M.map("n", "<C-l>", "<c-w>l")
 --other
-M.map("n", "<leader>q", ":copen<cr>")
+M.map("n", "<leader>q", ":Neotree close<cr> | :bd<cr> | :Neotree show<cr>")
+M.map("n", "<leader>w", ":w<cr>")
+M.map("n", "<leader>u", ":e<cr> | :LspRestart<cr>")
+M.map("n", "<leader>R", ":LspRestart<cr>")
+M.map("n", "<C-q>", ":q<cr>")
 M.map("n", "<C-c>", ":nohl<cr>")
 M.map("i", "<C-c>", "<Esc>")
 M.map("n", "n", "nzzzv")
