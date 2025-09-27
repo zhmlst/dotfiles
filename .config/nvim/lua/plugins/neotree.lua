@@ -7,9 +7,10 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
+    keys.map("n", "<leader>e", ":Neotree toggle<cr>")
     require("neo-tree").setup {
+      log_level = "error",
       popup_border_style = "",
-      keys.map("n", "<leader>e", ":Neotree toggle<cr>"),
       filesystem = {
         window = {
           mappings = {

@@ -18,3 +18,4 @@ export PATH="$GOPATH/bin:$HOME/.local/bin:$XDG_DATA_HOME/nvim/mason/bin:$PATH"
 mkdir -p $XDG_STATE_HOME
 
 [ -f ~/.bashrc ] && . ~/.bashrc
+. "$HOME/.cargo/env"

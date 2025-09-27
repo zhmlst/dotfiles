@@ -24,9 +24,6 @@ return {
           --sh
           "shfmt",
           "shellcheck",
-          --rust
-          "rust-analyzer",
-          "rustfmt",
         },
         auto_update = false,
         run_on_start = true,

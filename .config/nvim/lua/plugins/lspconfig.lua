@@ -54,15 +54,22 @@ return {
       capabilities = cmp_capabilities,
       settings = {
         ["rust-analyzer"] = {
-          completion = {
-            autoimport = { enable = true },
-          },
           assist = {
             importGranularity = "module",
             importPrefix = "by_self",
           },
-          cargo = { loadOutDirsFromCheck = true },
+          cargo = {
+            loadOutDirsFromCheck = true,
+          },
           checkOnSave = true,
+          completion = {
+            autoimport = { enable = true },
+          },
+          diagnostics = {
+            enable = true,
+            enableExperimental = true,
+          },
+          procMacro = { enable = true },
         },
       },
     })
