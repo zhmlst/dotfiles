@@ -34,7 +34,6 @@
   "niri/window": {
     "format": " {title} ",
     "tooltip": false,
-    "on-click": "niri msg action screenshot-window --id $(niri msg focused-window | grep -m 1 ID | grep -oP '\\d+')",
     "on-click-right": "niri msg action close-window --id $(niri msg focused-window | grep -m 1 ID | grep -oP '\\d+')"
   },
   "tray": {

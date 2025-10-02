@@ -5,7 +5,20 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   config = function()
     require("nvim-treesitter.configs").setup {
-      ensure_installed = { "lua", "go" },
+      ensure_installed = {
+        "lua",
+        "go",
+        "sql",
+        "c",
+        "dockerfile",
+        "make",
+        "rust",
+        "bash",
+        "proto",
+        "json",
+        "toml",
+        "yaml",
+      },
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,

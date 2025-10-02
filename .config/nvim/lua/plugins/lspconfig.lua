@@ -31,7 +31,7 @@ return {
     })
     vim.lsp.enable { "lua_ls" }
 
-    -- gopls
+    -- go
     vim.lsp.config("gopls", {
       capabilities = cmp_capabilities,
       settings = {
@@ -49,7 +49,7 @@ return {
     })
     vim.lsp.enable { "gopls" }
 
-    -- rust-analyzer
+    -- rust
     vim.lsp.config("rust_analyzer", {
       capabilities = cmp_capabilities,
       settings = {
@@ -75,6 +75,7 @@ return {
     })
     vim.lsp.enable { "rust_analyzer" }
 
+    --protobuf
     vim.lsp.config("buf_ls", {
       capabilities = cmp_capabilities,
       root_dir = vim.fs.dirname(vim.fs.find({ "buf.yaml", ".git" }, { upward = true })[1]),

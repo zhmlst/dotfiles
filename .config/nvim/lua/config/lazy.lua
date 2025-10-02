@@ -41,7 +41,7 @@ require("lazy").setup("plugins", {
         "compiler",
         "bugreport",
         "ftplugin",
-        "matchparen",
+        --"matchparen",
       },
     },
   },
