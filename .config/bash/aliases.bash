@@ -8,10 +8,17 @@ alias tree='tree -C'
 alias install='sudo pacman -S'
 
 #git
+if [ -f /usr/share/bash-completion/completions/git ]; then
+    . /usr/share/bash-completion/completions/git
+fi
 alias gl='git log --oneline --graph --all --decorate'
+__git_complete gl _git_log
 alias gs='git status --short'
-alias gc='git add . && git commit -m'
+__git_complete gs _git_status
+alias gc='git commit'
+__git_complete gc _git_commit
 alias ga='git add'
+__git_complete ga _git_add
 
 #dotfiles
 alias dots='git --git-dir=$HOME/.dots.git --work-tree=$HOME'
