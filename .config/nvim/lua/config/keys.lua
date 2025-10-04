@@ -7,10 +7,15 @@ end
 
 vim.g.mapleader = " "
 
+--insert
+M.map("i", "<C-c>", "<Esc>")
+M.map("i", "<C-d>", "<Del>")
+M.map("i", "<C-a>", "<Home>")
+M.map("i", "<C-e>", "<End>")
+M.map("i", "<C-f>", "<Right>")
+M.map("i", "<C-b>", "<Left>")
 --core
 M.map({ "n", "i", "v" }, "<F1>", "<nop>")
-M.map("n", ";", ":<C-f>")
-M.map("i", "<C-c>", "<Esc>")
 M.map("n", "<C-c>", ":nohl<cr>")
 M.map("n", "<C-q>", ":q<cr>")
 M.map("n", "<leader>w", ":w<cr>")
