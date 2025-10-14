@@ -5,13 +5,13 @@ alias ll='ls -la'
 alias la='ls -a'
 alias grep='grep --color=auto'
 alias tree='tree -C'
-alias install='sudo pacman -S'
+alias pkg='sudo pacman'
 
 #git
 if [ -f /usr/share/bash-completion/completions/git ]; then
     . /usr/share/bash-completion/completions/git
 fi
-alias gl='git log --oneline --graph --all --decorate'
+alias gl='git log --format=format:"%C(auto)%H%d %n%B" --graph'
 __git_complete gl _git_log
 alias gs='git status --short'
 __git_complete gs _git_status
@@ -19,6 +19,10 @@ alias gc='git commit'
 __git_complete gc _git_commit
 alias ga='git add'
 __git_complete ga _git_add
+alias gd='git diff'
+__git_complete gd _git_diff
+alias gb='git branch'
+__git_complete gb _git_branch
 
 #dotfiles
 alias dots='git --git-dir=$HOME/.dots.git --work-tree=$HOME'

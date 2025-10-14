@@ -8,6 +8,15 @@ return {
     keys.map("n", "gd", vim.lsp.buf.definition)
     keys.map("n", "gr", vim.lsp.buf.references)
     keys.map("n", "gi", vim.lsp.buf.implementation)
+    keys.map("n", "<leader>l", "<cmd>LspRestart<cr><cmd>e<cr>")
+    vim.keymap.del("n", "grt")
+    vim.keymap.del("n", "gcc")
+    vim.keymap.del("n", "gra")
+    vim.keymap.del("n", "gri")
+    vim.keymap.del("n", "grr")
+    vim.keymap.del("n", "grn")
+    vim.keymap.del("x", "gra")
+
     vim.diagnostic.config {
       virtual_text = {
         prefix = "//",
@@ -40,7 +49,7 @@ return {
             unreachable_code = true,
             unusedparams = true,
             deprecated = true,
-            shadow = true,
+            shadow = false,
             nilless = true,
           },
           completeUnimported = true,

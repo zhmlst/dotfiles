@@ -19,7 +19,7 @@ M.map({ "n", "i", "v" }, "<F1>", "<nop>")
 M.map("n", "<C-c>", ":nohl<cr>")
 M.map("n", "<C-q>", ":q<cr>")
 M.map("n", "<leader>w", ":w<cr>")
-M.map("n", "<leader>u", "<cmd>e<cr><cmd>LspRestart<cr>")
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 --buffers
 M.map("n", "<Tab>", ":bn<cr>")
 M.map("n", "<S-Tab>", ":bp<cr>")
@@ -29,5 +29,12 @@ M.map("n", "<C-h>", "<c-w>h")
 M.map("n", "<C-j>", "<c-w>j")
 M.map("n", "<C-k>", "<c-w>k")
 M.map("n", "<C-l>", "<c-w>l")
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "l", "<cr>", { noremap = true, silent = true, buffer = true })
+  end,
+})
 
 return M

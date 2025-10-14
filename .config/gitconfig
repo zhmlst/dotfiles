@@ -6,8 +6,10 @@
 [core]
 	editor = nvim
 [pull]
-	rebase = false
+	rebase = true
 [diff]
 	tool = nvimdiff
 [difftool]
 	prompt = false
+[init]
+	defaultBranch = main

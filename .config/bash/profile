@@ -19,3 +19,4 @@ mkdir -p $XDG_STATE_HOME
 
 [ -f ~/.bashrc ] && . ~/.bashrc
 . "$HOME/.cargo/env"
+. "$HOME/.cargo/env"

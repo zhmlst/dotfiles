@@ -29,7 +29,7 @@ local options = {
   },
   --behavior
   mouse = "",
-  scrolloff = 10,
+  --scrolloff = 10,
   updatetime = 250,
   smartcase = true,
   ignorecase = true,
