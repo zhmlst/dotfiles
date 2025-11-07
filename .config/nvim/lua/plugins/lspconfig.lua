@@ -49,7 +49,7 @@ return {
             unreachable_code = true,
             unusedparams = true,
             deprecated = true,
-            shadow = false,
+            shadow = true,
             nilless = true,
           },
           completeUnimported = true,
@@ -83,6 +83,17 @@ return {
       },
     })
     vim.lsp.enable { "rust_analyzer" }
+
+    -- zig
+    vim.lsp.config("zls", {
+      capabilities = cmp_capabilities,
+      settings = {
+        ["zls"] = {
+          enable_snippets = false,
+        },
+      },
+    })
+    vim.lsp.enable { "zls" }
 
     --protobuf
     vim.lsp.config("buf_ls", {

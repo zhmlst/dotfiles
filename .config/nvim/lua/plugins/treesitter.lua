@@ -8,6 +8,7 @@ return {
       ensure_installed = {
         "lua",
         "go",
+        "zig",
         "sql",
         "c",
         "dockerfile",
@@ -15,6 +16,7 @@ return {
         "rust",
         "bash",
         "proto",
+        "asm",
         "json",
         "toml",
         "yaml",

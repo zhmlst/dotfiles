@@ -24,6 +24,8 @@ return {
           --sh
           "shfmt",
           "shellcheck",
+          --zig
+          "zls",
         },
         auto_update = false,
         run_on_start = true,

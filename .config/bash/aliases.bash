@@ -5,7 +5,12 @@ alias ll='ls -la'
 alias la='ls -a'
 alias grep='grep --color=auto'
 alias tree='tree -C'
+
+if [ -f /usr/share/bash-completion/completions/pacman ]; then
+    . /usr/share/bash-completion/completions/pacman
+fi
 alias pkg='sudo pacman'
+complete -F _pacman pkg
 
 #git
 if [ -f /usr/share/bash-completion/completions/git ]; then
