@@ -72,7 +72,10 @@ return {
           },
           checkOnSave = true,
           completion = {
+            callable = { snippets = "none" },
+            postfix = { enable = false },
             autoimport = { enable = true },
+            --snippets = { enable = false },
           },
           diagnostics = {
             enable = true,
