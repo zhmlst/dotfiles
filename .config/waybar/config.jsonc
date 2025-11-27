@@ -2,32 +2,18 @@
   "reload_style_on_change": true,
   "layer": "top",
   "modules-left": [
-    "niri/workspaces",
-    "custom/separator",
-    "niri/window"
+    "hyprland/workspaces",
+    "hyprland/window"
   ],
   "modules-right": [
     "tray",
-    "custom/separator",
     "custom/notification",
-    "custom/separator",
     "niri/language",
-    "custom/separator",
     "wireplumber",
-    "custom/separator",
-    "bluetooth",
-    "custom/separator",
-    "network",
-    "custom/separator",
     "custom/battery",
-    "custom/separator",
     "clock",
     "privacy"
   ],
-  "custom/separator": {
-    "format": "|",
-    "tooltip": false
-  },
   "niri/workspaces": {
     "format": " {index} "
   },
@@ -74,23 +60,6 @@
       "󰕾"
     ],
     "format-muted": " 󰝟 {volume} "
-  },
-  "bluetooth": {
-    "format": "  {status} ",
-    "format-connected": "  {num_connections} connected ",
-    "format-disabled": " 󰂲 {status} ",
-    "on-click": "blueman-manager",
-    "on-click-right": "rfkill toggle bluetooth"
-  },
-  "network": {
-    "interface": "wlp1s0",
-    "format": " 󰖩 {essid} ",
-    "format-disconnected": " 󱛅 disconnected ",
-    "format-disabled": " 󰖪 disabled ",
-    "max-length": 50,
-    "tooltip": false,
-    "on-click": "nm-connection-editor",
-    "on-click-right": "rfkill toggle wlan"
   },
   "custom/battery": {
     "exec": "$XDG_CONFIG_HOME/waybar/scripts/battery.sh --low 10 --full 95",
