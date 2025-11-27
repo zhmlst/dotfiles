@@ -1,0 +1,27 @@
+{
+  "logo": {
+      "type": "file",
+      "source": "~/.config/fastfetch/logo",
+      "padding": {
+          "top": 0,
+          "left": 2,
+          "right": 2
+      },
+      "color": {
+          "1": "white"
+      }
+  },
+  "display": {
+      "color": {
+          "keys": "blue"
+      }
+  },
+  "modules": [
+      "os",
+      "wm",
+      "shell",
+      "theme",
+      "terminal",
+      "packages"
+  ]
+}

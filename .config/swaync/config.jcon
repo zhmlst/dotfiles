@@ -1,0 +1,11 @@
+{
+  "position": "top-right",
+  "layer": "overlay",
+  "timeout": 5000,
+  "hide-on-clear": true,
+  "keyboard-shortcuts": true,
+  "widgets": ["inhibitors", "notifications", "mpris"],
+  "notification-edges": true,
+  "control-center": true,
+  "notifications": true,
+}
