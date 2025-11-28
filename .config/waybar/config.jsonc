@@ -8,19 +8,18 @@
   "modules-right": [
     "tray",
     "custom/notification",
-    "niri/language",
+    "hyprland/language",
     "wireplumber",
     "custom/battery",
     "clock",
     "privacy"
   ],
-  "niri/workspaces": {
+  "hyprland/workspaces": {
     "format": " {index} "
   },
-  "niri/window": {
+  "hyprland/window": {
     "format": " {title} ",
-    "tooltip": false,
-    "on-click-right": "niri msg action close-window --id $(niri msg focused-window | grep -m 1 ID | grep -oP '\\d+')"
+    "tooltip": false
   },
   "tray": {
     "spacing": 10
@@ -45,7 +44,7 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
-  "niri/language": {
+  "hyprland/language": {
     "format": " {} ",
     "format-en": "US",
     "format-ru": "RU"
