@@ -45,6 +45,6 @@ case "${1:-}" in
     ;;
 
 *)
-    err "Usage: $0 [ -r | -w ]" 2
+    err "Usage: $0 [ -s | -w ]" 2
     ;;
 esac

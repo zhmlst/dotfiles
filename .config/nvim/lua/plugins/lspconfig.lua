@@ -1,4 +1,5 @@
-local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 return {
   "neovim/nvim-lspconfig",
   config = function()
@@ -29,7 +30,7 @@ return {
 
     -- lua
     vim.lsp.config("lua_ls", {
-      capabilities = cmp_capabilities,
+      capabilities = capabilities,
       settings = {
         Lua = {
           diagnostics = {
@@ -42,7 +43,7 @@ return {
 
     -- go
     vim.lsp.config("gopls", {
-      capabilities = cmp_capabilities,
+      capabilities = capabilities,
       settings = {
         gopls = {
           analyses = {
@@ -60,7 +61,7 @@ return {
 
     -- rust
     vim.lsp.config("rust_analyzer", {
-      capabilities = cmp_capabilities,
+      capabilities = capabilities,
       settings = {
         ["rust-analyzer"] = {
           assist = {
@@ -88,7 +89,7 @@ return {
 
     --protobuf
     vim.lsp.config("buf_ls", {
-      capabilities = cmp_capabilities,
+      capabilities = capabilities,
       root_dir = vim.fs.dirname(vim.fs.find({ "buf.yaml", ".git" }, { upward = true })[1]),
     })
     vim.lsp.enable { "buf_ls" }

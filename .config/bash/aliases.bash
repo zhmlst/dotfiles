@@ -1,7 +1,7 @@
 alias c='clear'
 alias vi='nvim'
 alias ls='ls --color=auto'
-alias ll='ls -la'
+alias ll='ls -hla'
 alias la='ls -a'
 alias grep='grep --color=auto'
 alias tree='tree -C'
