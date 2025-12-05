@@ -1,0 +1,6 @@
+*
+!.bash_profile
+!.bashrc
+!.config/
+!.config/**
+.config/go/

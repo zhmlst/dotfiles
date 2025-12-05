@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DIR="$HOME/pictures/wallpapers"
+FILE=$(find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.png" \) | shuf -n 1)
+swaybg -i "$FILE"
