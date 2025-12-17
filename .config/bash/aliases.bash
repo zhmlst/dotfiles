@@ -6,6 +6,14 @@ alias la='ls -a'
 alias grep='grep --color=auto'
 alias tree='tree -C'
 
+catall() {
+    find "$@" -type f -exec awk '
+    FNR==1 {
+        print "\x1b[94m=== " FILENAME " ===\x1b[0m"
+    }
+    { print $0 }' {} \;
+}
+
 back() { nohup "$@" >/dev/null 2>&1 & }
 _back_complete() {
     local cur="${COMP_WORDS[COMP_CWORD]}"
