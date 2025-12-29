@@ -19,7 +19,9 @@ M.map({ "n", "i", "v" }, "<F1>", "<nop>")
 M.map("n", "<C-c>", ":nohl<cr>")
 M.map("n", "<C-q>", ":q<cr>")
 M.map("n", "<leader>w", ":w<cr>")
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+M.map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
+-- visual
+M.map("x", "<leader>c", [[:<C-u>'<,'>g/^\s*\/\//d | '<,'>s/\s*\/\/.*/ /e | nohl<cr>]])
 --buffers
 M.map("n", "<Tab>", ":bn<cr>")
 M.map("n", "<S-Tab>", ":bp<cr>")
