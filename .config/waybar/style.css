@@ -1,3 +1,4 @@
+/* === /home/zhmlst/.config/waybar/style.css === */
 * {
     font-family: monospace;
     font-size: 15px;
@@ -6,32 +7,50 @@
     text-shadow: none;
 }
 
-
 window#waybar {
-    background-color: #1a1a19;
+    background-color: #1a1a19; /* Твой родной темный фон */
     border-bottom: 1px solid #333332;
 }
 
 /* workspaces */
 #workspaces button {
     padding: 0px;
+    margin: 0px;    /* Убираем лишние отступы между квадратами */
     border: none;
     box-shadow: none;
     border-radius: 0px;
+    background-color: #1a1a19; /* Цвет неактивных: сливается с баром */
+}
+
+/* Текст (индекс) внутри кнопки */
+#workspaces button label {
+    padding: 0 8px; /* Добавляем объем квадрату и место для цифры */
+    color: #d1d1d1; /* Светлый текст на неактивном фоне */
+}
+
+/* Ховер на неактивный воркспейс */
+#workspaces button:hover {
+    background-color: #333332; /* Цвет ховера */
 }
 
 #workspaces button:hover label {
-    color: #eaeaea;
-    background: #333332;
+    color: #eaeaea; /* Чуть более светлый текст при ховере */
 }
 
-#workspaces button.focused label {
-    /* color: #1a1a19; */
-    background-color: #d1d1d1;
+/* АКТИВНЫЙ воркспейс — Белый квадрат */
+#workspaces button.focused,
+#workspaces button.active {
+    background-color: #d1d1d1; /* Белый фон */
 }
 
-#workspaces button.focused:hover label {
-    color: #333332;
+#workspaces button.focused label,
+#workspaces button.active label {
+    color: #1a1a19; /* Темный текст на белом фоне */
+}
+
+/* Ховер на активный квадрат */
+#workspaces button.focused:hover,
+#workspaces button.active:hover {
     background-color: #eaeaea;
 }
 
@@ -39,13 +58,9 @@ window#waybar {
     background-color: #ff968c;
 }
 
-#workspaces button.urgent:hover label {
-    color: #333332;
-    background-color: #ffafa5;
-}
-
 #custom-battery.low { border-bottom: 1px solid #ff968c; }
 
+/* Твои ховеры на остальные модули */
 #window:hover,
 #wireplumber:hover,
 #language:hover,
@@ -55,5 +70,5 @@ window#waybar {
 #clock:hover,
 #custom-notification:hover {
     color: #eaeaea;
-    background: #333332;
+    background: #333332; /* Твой цвет ховера */
 }

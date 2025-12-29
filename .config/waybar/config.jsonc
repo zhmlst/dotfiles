@@ -15,7 +15,9 @@
     "privacy"
   ],
   "hyprland/workspaces": {
-    "format": " {index} "
+    "format": "{name}",
+    "active-only": false,
+    "all-outputs": true
   },
   "hyprland/window": {
     "format": " {title} ",
