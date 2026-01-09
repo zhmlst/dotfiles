@@ -46,6 +46,7 @@ return {
       capabilities = capabilities,
       settings = {
         gopls = {
+          buildFlags = { "-tags=integration" },
           analyses = {
             unreachable_code = true,
             unusedparams = true,
@@ -58,6 +59,24 @@ return {
       },
     })
     vim.lsp.enable { "gopls" }
+    --
+    vim.api.nvim_create_user_command("Goflags", function(opts)
+      local flags = {}
+      if opts.args ~= "" then
+        for s in opts.args:gmatch "%S+" do
+          table.insert(flags, s)
+        end
+      end
+
+      local clients = vim.lsp.get_clients { name = "gopls" }
+      for _, client in ipairs(clients) do
+        client.config.settings.gopls.buildFlags = flags
+        client.notify("workspace/didChangeConfiguration", {
+          settings = client.config.settings,
+        })
+        print("Gopls buildFlags updated to: " .. (opts.args ~= "" and opts.args or "empty"))
+      end
+    end, { nargs = "*" })
 
     -- rust
     vim.lsp.config("rust_analyzer", {
