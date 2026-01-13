@@ -1,17 +1,16 @@
 return {
   "stevearc/conform.nvim",
-  config = function()
-    local conform = require "conform"
-    conform.setup {
-      formatters_by_ft = {
-        go = { "goimports" },
-        lua = { "stylua" },
-        sh = { "shfmt" },
-        rust = { "rustfmt" },
-        json = { "jq" },
-        jsonc = { "jq" },
-      },
-      format_on_save = true,
-    }
-  end,
+  opts = {
+    formatters_by_ft = {
+      go = { "goimports", "gofumpt" },
+      lua = { "stylua" },
+      rust = { "rustfmt" },
+    },
+    format_on_save = function(bufnr)
+      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+        return
+      end
+      return { timeout_ms = 500, lsp_fallback = true }
+    end,
+  },
 }

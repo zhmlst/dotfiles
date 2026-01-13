@@ -1,41 +1,44 @@
-local options = {
-  --fmt
-  tabstop = 4,
-  softtabstop = 4,
-  shiftwidth = 4,
-  expandtab = true,
-  smartindent = true,
-  --file
-  confirm = true,
-  undofile = true,
-  swapfile = false,
-  backup = false,
-  writebackup = false,
-  --ui
-  wrap = false,
-  inccommand = "split",
-  cursorline = true,
-  laststatus = 3,
-  splitkeep = "screen",
-  signcolumn = "yes",
-  showmode = false,
-  termguicolors = true,
-  list = true,
-  listchars = {
-    tab = "» ",
-    trail = "•",
-    conceal = "┊",
-    nbsp = "␣",
+vim.diagnostic.config({
+  virtual_text = {
+    spacing = 0,
+    source = "if_many",
+    prefix = "//",
   },
-  --behavior
-  mouse = "",
-  --scrolloff = 10,
-  updatetime = 250,
-  smartcase = true,
-  ignorecase = true,
-  clipboard = "unnamedplus",
-  completeopt = "menu,menuone,noselect",
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    border = "rounded",
+    source = "always",
+  },
+})
+
+vim.opt.clipboard = "unnamedplus"
+vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes"
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.undofile = true
+vim.opt.updatetime = 50
+vim.opt.confirm = true
+vim.opt.wrap = false
+vim.opt.list = true
+vim.opt.listchars = {
+  tab = "» ",
+  trail = "•",
+  nbsp = "␣",
+  extends = "→",
+  precedes = "←",
 }
-for k, v in pairs(options) do
-  vim.opt[k] = v
-end
+vim.opt.inccommand = "split"
+vim.opt.mouse = ""
+vim.opt.laststatus = 3
+vim.opt.splitkeep = "screen"
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.cursorline = true
+vim.opt.completeopt = "menu,menuone,noselect"
