@@ -1,10 +1,7 @@
 {
   "reload_style_on_change": true,
   "layer": "top",
-  "modules-left": [
-    "hyprland/workspaces",
-    "hyprland/window"
-  ],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-right": [
     "tray",
     "custom/notification",
@@ -12,19 +9,19 @@
     "wireplumber",
     "custom/battery",
     "clock",
-    "privacy"
+    "privacy",
   ],
   "hyprland/workspaces": {
     "format": "{name}",
     "active-only": false,
-    "all-outputs": true
+    "all-outputs": true,
   },
   "hyprland/window": {
     "format": " {title} ",
-    "tooltip": false
+    "tooltip": false,
   },
   "tray": {
-    "spacing": 10
+    "spacing": 10,
   },
   "custom/notification": {
     "tooltip": false,
@@ -37,30 +34,26 @@
       "inhibited-notification": "<span foreground='red'><sup></sup></span>",
       "inhibited-none": "",
       "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": ""
+      "dnd-inhibited-none": "",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
-    "escape": true
+    "escape": true,
   },
   "hyprland/language": {
     "format": " {} ",
     "format-en": "US",
-    "format-ru": "RU"
+    "format-ru": "RU",
   },
   "wireplumber": {
     "format": " {icon} {volume}% ",
     "on-click": "helvum",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "format-icons": [
-      "󰕿",
-      "󰖀",
-      "󰕾"
-    ],
-    "format-muted": " 󰝟 {volume} "
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "format-muted": " 󰝟 {volume} ",
   },
   "custom/battery": {
     "exec": "$XDG_CONFIG_HOME/waybar/scripts/battery.sh --low 10 --full 95",
@@ -68,58 +61,32 @@
     "return-type": "json",
     "format": " {icon} {percentage}% ",
     "format-icons": {
-      "charging": [
-        "󰢟",
-        "󰢜",
-        "󰂆",
-        "󰂇",
-        "󰂈",
-        "󰢝",
-        "󰂉",
-        "󰢞",
-        "󰂊",
-        "󰂋",
-        "󰂅"
-      ],
-      "discharging": [
-        "󰂎",
-        "󰁺",
-        "󰁻",
-        "󰁼",
-        "󰁽",
-        "󰁾",
-        "󰁿",
-        "󰂀",
-        "󰂁",
-        "󰂂",
-        "󰁹"
-      ],
-      "full": [
-        "󰁹"
-      ]
+      "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "discharging": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "full": ["󰁹"],
     },
-    "tooltip": false
+    "tooltip": false,
   },
   "clock": {
     "format": " {:%Y-%m-%d %H:%M} ",
     "timezone": "Europe/Moscow",
-    "tooltip": false
+    "tooltip": false,
   },
   "privacy": {
     "transition-duration": 250,
     "modules": [
       {
         "type": "screenshare",
-        "tooltip": true
+        "tooltip": true,
       },
       {
         "type": "audio-out",
-        "tooltip": true
+        "tooltip": true,
       },
       {
         "type": "audio-in",
-        "tooltip": true
-      }
-    ]
-  }
+        "tooltip": true,
+      },
+    ],
+  },
 }

@@ -17,7 +17,7 @@ export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-export PATH="$GOPATH/bin:$HOME:$XDG_CONFIG_HOME/scripts:/.local/bin:$XDG_DATA_HOME/nvim/mason/bin:$PATH"
+export PATH="$HOME/.local/bin:$GOPATH/bin:$XDG_DATA_HOME/nvim/mason/bin:$PATH"
 
 mkdir -p $XDG_STATE_HOME
 

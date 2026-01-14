@@ -1,1 +1,1 @@
-.config/bash/rc
+/home/zhmlst/.config/bash/rc.bash

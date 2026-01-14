@@ -1,1 +1,1 @@
-.config/bash/profile
+/home/zhmlst/.config/bash/profile.bash

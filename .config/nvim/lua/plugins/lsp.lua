@@ -1,23 +1,28 @@
+vim.g.vim_json_warnings = 0
 return {
   {
-    'williamboman/mason.nvim',
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
     opts = {
       ensure_installed = {
         'lua-language-server',
         'stylua',
+        'gopls',
+        'gofumpt',
+        'goimports-reviser',
+        'buf',
+        'sqls',
+        'sql-formatter',
+        'yaml-language-server',
+        'taplo',
+        'bash-language-server',
+        'shfmt',
+        'prettier',
       },
+      auto_update = false,
+      run_on_start = true,
     },
-    config = function(_, opts)
-      require('mason').setup(opts)
-      local mr = require('mason-registry')
-      for _, tool in ipairs(opts.ensure_installed) do
-        local p = mr.get_package(tool)
-        if not p:is_installed() then
-          p:install()
-        end
-      end
-    end,
   },
+
   {
     'neovim/nvim-lspconfig',
     dependencies = { 'williamboman/mason.nvim' },
@@ -31,6 +36,12 @@ return {
             },
           },
         },
+        gopls = {},
+        bufls = {},
+        sqls = {},
+        yamlls = {},
+        taplo = {},
+        bashls = {},
       }
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
@@ -50,11 +61,21 @@ return {
       end
     end,
   },
+
   {
     'stevearc/conform.nvim',
     opts = {
       formatters_by_ft = {
         lua = { 'stylua' },
+        go = { 'goimports-reviser', 'gofumpt' },
+        proto = { 'buf' },
+        sql = { 'sql_formatter' },
+        yaml = { 'prettier' },
+        json = { 'prettier' },
+        jsonc = { 'prettier' },
+        toml = { 'taplo' },
+        sh = { 'shfmt' },
+        bash = { 'shfmt' },
       },
       format_on_save = {
         timeout_ms = 500,
