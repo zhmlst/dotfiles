@@ -1,19 +1,26 @@
 return {
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons",
+  'nvim-neo-tree/neo-tree.nvim',
+  lazy = false,
+  branch = 'v3.x',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvim-tree/nvim-web-devicons',
+    'MunifTanjim/nui.nvim',
+  },
+  keys = {
+    { '<leader>e', '<cmd>Neotree toggle<cr>' },
+  },
+  opts = {
+    filesystem = {
+      follow_current_file = {
+        enabled = true,
+      },
     },
-    lazy = false,
-    opts = {
-      window = {
-        mappings = {
-          ["l"] = "open",
-          ["h"] = "close_node",
-        },
+    window = {
+      mappings = {
+        ['h'] = 'close_node',
+        ['l'] = 'open',
+        [','] = 'navigate_up',
       },
     },
   },

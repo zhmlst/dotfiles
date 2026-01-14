@@ -1,4 +1,4 @@
 include "%L"
-<Multi_key> <v> <v> : "✓"
-<Multi_key> <|> <^> : "↑"
-<Multi_key> <|> <v> : "↓"
+<Multi_key> <y> <y> : "✓"
+<Multi_key> <^> <^> : "↑"
+<Multi_key> <v> <v> : "↓"
