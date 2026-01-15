@@ -53,9 +53,13 @@ return {
     opts = {
       keymap = {
         preset = 'none',
-        ['<C-j>'] = { 'select_and_accept', 'fallback' },
+        ['<C-y>'] = { 'select_and_accept', 'fallback' },
+        ['<C-m>'] = { 'select_and_accept', 'fallback' },
 
         ['<C-space>'] = { 'show', 'hide', 'fallback' },
+
+        ['<Tab>'] = { 'snippet_forward', 'fallback' },
+        ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
 
         ['<C-n>'] = { 'select_next', 'fallback' },
         ['<C-p>'] = { 'select_prev', 'fallback' },
@@ -65,6 +69,7 @@ return {
       },
 
       completion = {
+        ghost_text = { enabled = false },
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 0,
@@ -90,7 +95,7 @@ return {
         'stylua',
         'gopls',
         'gofumpt',
-        'goimports-reviser',
+        'goimports',
         'buf',
         'sqls',
         'sql-formatter',
@@ -156,7 +161,7 @@ return {
     opts = {
       formatters_by_ft = {
         lua = { 'stylua' },
-        go = { 'goimports-reviser', 'gofumpt' },
+        go = { 'goimports', 'gofumpt' },
         proto = { 'buf' },
         sql = { 'sql_formatter' },
         yaml = { 'prettier' },
