@@ -20,13 +20,19 @@ vim.keymap.set({ 'i', 'c' }, '<C-d>', '<Del>')
 vim.keymap.set('i', '<C-k>', '<C-o>D')
 vim.keymap.set('c', '<C-k>', [[<C-\>egetcmdline()[:getcmdpos()-2]<cr>]])
 
+vim.keymap.set('n', '<C-c>', '<cmd>noh<cr>')
 vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float)
+vim.keymap.set(
+  'n',
+  '<leader>S',
+  [[:s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
+)
+vim.keymap.set(
+  'n',
+  '<leader>s',
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
+)
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
-
-vim.keymap.set('x', 'J', ":m '>+1<cr>gv=gv")
-vim.keymap.set('x', 'K', ":m '<-2<cr>gv=gv")
-vim.keymap.set('x', '>', '>gv')
-vim.keymap.set('x', '<', '<gv')

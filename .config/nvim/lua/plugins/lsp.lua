@@ -15,6 +15,7 @@ return {
       local langs = {
         'lua',
         'go',
+        'proto',
         'rust',
         'sql',
         'yaml',
@@ -22,6 +23,7 @@ return {
         'bash',
         'json',
         'markdown',
+        'asm',
       }
 
       vim.api.nvim_create_autocmd('User', {
@@ -97,6 +99,7 @@ return {
         'gofumpt',
         'goimports',
         'buf',
+        'protols',
         'sqls',
         'sql-formatter',
         'yaml-language-server',
@@ -128,7 +131,7 @@ return {
           },
         },
         gopls = {},
-        bufls = {},
+        protols = {},
         sqls = {},
         yamlls = {},
         taplo = {},
@@ -144,7 +147,7 @@ return {
           vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-          vim.keymap.set('n', '<leader>lr', '<cmd>LspRestart<cr>', opts)
+          vim.keymap.set('n', '<leader>lr', '<cmd>e | LspRestart<cr>', opts)
         end,
       })
 
