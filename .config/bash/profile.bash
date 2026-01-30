@@ -5,6 +5,7 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
 export XCOMPOSEFILE="$XDG_CONFIG_HOME/compose"
+export BROWSER=firefox
 
 export GOPATH="$HOME/.go"
 export GOTRACEBACK=none

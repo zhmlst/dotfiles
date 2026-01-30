@@ -6,6 +6,20 @@ alias la='ls -a'
 alias grep='grep --color=auto'
 alias tree='tree -C'
 
+if [ -f /usr/share/bash-completion/completions/systemctl ]; then
+	. /usr/share/bash-completion/completions/systemctl
+fi
+alias sc='systemctl'
+complete -F _systemctl sc
+alias scu='systemctl --user'
+complete -F _systemctl scu
+alias scr='systemctl restart'
+complete -F _systemctl scr
+alias scs='systemctl start'
+complete -F _systemctl scs
+alias scd='systemctl stop'
+complete -F _systemctl scd
+
 catall() {
 	find "$@" -type f -exec awk '
     FNR==1 {

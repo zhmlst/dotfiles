@@ -1,4 +1,6 @@
 vim.g.vim_json_warnings = 0
+vim.g.omni_sql_no_default_maps = 1
+
 return {
   {
     'nvim-treesitter/nvim-treesitter',
@@ -99,14 +101,10 @@ return {
         'gofumpt',
         'goimports',
         'buf',
-        'protols',
-        'sqls',
-        'sql-formatter',
         'yaml-language-server',
         'taplo',
         'bash-language-server',
         'shfmt',
-        'prettier',
         'rust-analyzer',
         'rustfmt',
       },
@@ -130,9 +128,14 @@ return {
             },
           },
         },
-        gopls = {},
-        protols = {},
-        sqls = {},
+        gopls = {
+          settings = {
+            gopls = {
+              buildFlags = { '-tags=unit,integration,e2e' },
+            },
+          },
+        },
+        buf_ls = {},
         yamlls = {},
         taplo = {},
         bashls = {},
@@ -145,9 +148,9 @@ return {
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
           vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-          vim.keymap.set('n', '<leader>lr', '<cmd>e | LspRestart<cr>', opts)
+          vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
+          vim.keymap.set('n', '<leader>s', '<cmd>e | LspRestart<cr>')
         end,
       })
 
@@ -166,7 +169,6 @@ return {
         lua = { 'stylua' },
         go = { 'goimports', 'gofumpt' },
         proto = { 'buf' },
-        sql = { 'sql_formatter' },
         yaml = { 'prettier' },
         json = { 'prettier' },
         jsonc = { 'prettier' },

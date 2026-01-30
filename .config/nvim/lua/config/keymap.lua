@@ -21,7 +21,7 @@ vim.keymap.set('i', '<C-k>', '<C-o>D')
 vim.keymap.set('c', '<C-k>', [[<C-\>egetcmdline()[:getcmdpos()-2]<cr>]])
 
 vim.keymap.set('n', '<C-c>', '<cmd>noh<cr>')
-vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 vim.keymap.set(
   'n',
   '<leader>S',
