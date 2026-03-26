@@ -1,0 +1,7 @@
+[user]
+	email = zhmlst.btw@gmail.com
+	name = zhmlst
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
